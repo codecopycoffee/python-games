@@ -1,4 +1,5 @@
 import turtle
+import os
 
 wndw = turtle.Screen()
 wndw.title("")
@@ -34,6 +35,18 @@ ball.penup()
 ball.goto(0, 0)
 ball.dx = 2
 ball.dy = 2
+
+#Scoring
+pen = turtle.Turtle()
+pen.speed(0)
+pen.color("deep pink")
+pen.penup()
+pen.hideturtle()
+pen.goto(0, 260)
+pen.write("Player One: 0  Player Two: 0", align="center", font=("Courier", 20, "normal"))
+
+score_one = 0
+score_two = 0
 
 #Paddle Motion
 def paddle_r_up():
@@ -72,18 +85,26 @@ while True:
     if ball.ycor() > 290:
         ball.sety(290)
         ball.dy *= -1
+        os.system("afplay laser1.wav&")
 
     if ball.ycor() < -290:
         ball.sety(-290)
         ball.dy *= -1
+        os.system("afplay jump.wav&")
 
     if ball.xcor() > 390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_one += 1
+        pen.clear()
+        pen.write("Player One: {}  Player Two: {}".format(score_one, score_two), align="center", font=("Courier", 20, "normal"))
 
     if ball.xcor() < -390:
         ball.goto(0, 0)
         ball.dx *= -1
+        score_two += 1
+        pen.clear()
+        pen.write("Player One: {}  Player Two: {}".format(score_one, score_two), align="center", font=("Courier", 20, "normal"))
 
     #Ball and Paddle Interaction
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_r.ycor() + 50 and ball.ycor() > paddle_r.ycor() - 50):
