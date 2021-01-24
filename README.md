@@ -10,3 +10,5 @@ Challenges:
 Connect4 - Created following Keith Galli's (https://www.youtube.com/channel/UC4JX40jDee_tINbkjycV4Sg) tutorial.  
 Challenges:
 * This was my first time using numpy. I used Homebrew to install it, but when I attempted to run my file I got an error message saying that numpy was not found. I did some research and learned how to modify PYTHONPATH so Python could locate numpy.
+
+<img src="https://github.com/codecopycoffee/python-games/blob/master/pong_preview.png" alt="pong game screenshot" width="500px" height="auto">
